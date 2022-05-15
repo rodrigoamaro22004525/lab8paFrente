@@ -1,0 +1,33 @@
+* {
+    overflow-x: hidden;
+}
+
+.direita {
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #86bbea;
+    color: #000000;
+    text-align: center;
+}
+
+header {
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    background: #a62c43;
+    right: 0;
+    top: -40px;
+    width: 100%;
+    margin: 0
+}
+
+image {
+    background-repeat: no-repeat
+}
