@@ -1,0 +1,14 @@
+{% extends 'portfolio/home.html' %}
+
+{% block main %}
+<h3>Portfolio</h3>
+    <form action="{% url 'portfolio:edita' tarefa_id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <a href="{% url 'portfolio:home' %}" role="button" class="btn btn-warning">Cancelar</a>
+        <input type="submit" value="Gravar" class="btn btn-success" >
+        <a href="{% url 'portfolio:apaga' tarefa_id %}" role="button" class="btn btn-danger">Apagar</a>
+    </form>
+
+{% endblock %}

@@ -1,4 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+
+from .models import Portfolio
+from .forms import PortfolioForm
 
 
 # Create your views here.
@@ -26,4 +31,33 @@ def contacto_page_view(request):
 # Licenciatura
 def licenciatura_page_view(request):
     return render(request, 'portfolio/licenciatura.html')
+
+
+def nova_portfolio_view(request):
+    form = PortfolioForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:home'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novo.html', context)
+
+
+def edita_portfolio_view(request, portfolio_id):
+    portfolio = Portfolio.objects.get(id=portfolio_id)
+    form = PortfolioForm(request.POST or None, instance=portfolio)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:home'))
+
+    context = {'form': form, 'portfolio_id': portfolio_id}
+    return render(request, 'portfolio/editar.html', context)
+
+
+def apaga_portfolio_view(request, portfolio_id):
+    Portfolio.objects.get(id=portfolio_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:home'))
+
 
