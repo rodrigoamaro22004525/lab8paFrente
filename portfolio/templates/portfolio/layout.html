@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 10vh;color: black;justify-content: space-between;align-items: center;background: #86bbea; right: 0; top: 0; width: 100%;margin: 0">
+
+<html lang="en"
+      style="height: 10vh;color: black;justify-content: space-between;align-items: center;background: black; right: 0; top: 0; width: 100%;margin: 0">
+
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        *{overflow-x: hidden;}
-        .direita{display: flex;justify-content: flex-end;}
-        footer{position: fixed;right: 0;bottom: 0;width: 100%;background-color: #86bbea;color: #000000;text-align: center;}
-        header{color: black;justify-content: space-between;align-items: center;background: #a62c43; right: 0; top: -40px; width: 100%;margin: 0}
-    </style>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
 
 
 </head>
-<body>
-    <header>
-        <div>
-            <h1 style="margin: 0">Manuel Silva.</h1>
-            <nav>
-                <a href="{% url 'portfolio:home' %}" style="display:flex;justify-content:space-between;"
-                >   <!-- Para as páginas do site -->    </a>
 
-               <nav class="direita" style="text-align: right">
-                  <p style="margin: 20px;"><a href="">home</a>
-                  <a href=""> products </a>
-                  <a href=""> about </a>
-                  <a href=""> contact </a></p>
-               </nav>
 
-            </nav>
+{% load static %}
+<link rel="stylesheet" href="{% static '' %}">
+
+
+<body style="margin:0;">
+
+    <header >
+        <div >
+            <h2 style="margin: 5px">Rodrigo Amaro</h2>
+
+            <ol style="padding-left: 1000px;">
+                <li> <a href={% url 'portfolio:home' %}> Home </a> </li>
+                <li> <a href={% url 'portfolio:projeto' %}> Projetos </a> </li>
+                <li> <a href={% url 'portfolio:sobre' %}> Sobre </a> </li>
+                <li> <a href={% url 'portfolio:contacto' %}> Contacto </a> </li>
+                <li> <a href={% url 'portfolio:licenciatura' %}> Licenciatura </a> </li>
+
+            </ol>
+            <a href="" class="btn"> <!-- outras cenas --> </a>
         </div>
     </header>
-	    <main>
-        <!-- base.html -->
-            {% block main %}
+<br><br><br><br>
+
+
+    <main>
+        {% block main %}
 
 
 
-            {% endblock main %}
+        {% endblock main %}
+    </main>
 
 
-        </main>
 
     <footer>
-        <p style="text-align: right;margin: 20px">ULHT 2º Ano</p>
+        <p style="text-align: right;margin: 20px;color: #3a0000">ULHT 2º Ano</p>
     </footer>
 </body>
 </html>

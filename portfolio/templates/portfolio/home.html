@@ -1,20 +1,40 @@
-<!DOCTYPE html>
+<!-- home.html -->
+
+{% extends 'portfolio/layout.html' %}
+
+
+{% block style %}
+
+{% endblock style %}
 
 
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <!-- home.html -->
+{% block main %}
 
-    {% extends 'layout.html' %}
 
-    {% block main %}
-        <h3>Titulo</h3>
-        <p>texto texto texto texto texto texto texto </p>
-    {% endblock %}
-</body>
-</html>
+    <center style="background-color: #000000"> <h2 style="color: white">Bem Vindo ao meu Portfolio!</h2><hr></center>
+
+    <center style="background-color: #1e1e1f"><a href="" ><h2 style="color: white ">Programção</h2></a><br></center>
+
+    {% load static %}
+    <img class="image" src="{% static 'portfolio/images/Csharp.png' %}">
+
+
+    <center style="background-color: #202c34; "><a href="" ><h2 style="color: white ">Virtualização</h2></a><br></center>
+
+    {% load static %}
+    <img class="image" src="{% static 'portfolio/images/Containers.png'%} ">
+
+
+    <center style="background-color: #fdfdfe; "><a href="" ><h2 style="color: black ">Reverse-Engeneering (IDA)</h2></a><br></center>
+
+    {% load static %}
+    <img class="image" src="{% static 'portfolio/images/revEng.png'%} ">
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,9 +1,8 @@
 * {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .direita {
-    display: flex;
     justify-content: flex-end;
 }
 
@@ -12,22 +11,54 @@ footer {
     right: 0;
     bottom: 0;
     width: 100%;
-    background-color: #86bbea;
     color: #000000;
     text-align: center;
+    background-image: url("../images/headerGif.gif");
 }
 
 header {
-    color: black;
+    position: fixed;
+    color: white;
     justify-content: space-between;
     align-items: center;
-    background: #a62c43;
     right: 0;
-    top: -40px;
     width: 100%;
-    margin: 0
+    background-image: url("../images/headerGif.gif");
 }
+
 
 image {
     background-repeat: no-repeat
 }
+
+
+
+
+
+div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+div ol li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+div ol li a{
+    color: ghostwhite;
+    text-decoration: dotted;
+    margin: 10px;
+}
+
+li a:hover{color: lightcyan;}
+li a:visited{color: blue;}
+li a:active{color: aquamarine}
+
+
+.image{width: 100%;}
+
+
