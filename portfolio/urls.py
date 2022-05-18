@@ -28,7 +28,10 @@ urlpatterns = [
     path('sobre', views.sobre_page_view, name='sobre'),
     path('contacto', views.contacto_page_view, name='contacto'),
     path('licenciatura', views.licenciatura_page_view, name='licenciatura'),
-    path('nova/', views.nova_portfolio_view, name='nova'),
+    path('blog', views.blog_page_view, name='blog'),
+    path('novo/', views.novo_portfolio_view, name='novo'),
     path('edita/<int:portfolio_id>', views.edita_portfolio_view, name='edita'),
     path('apaga/<int:portfolio_id>', views.apaga_portfolio_view, name='apaga'),
+    path('test', views.PostList.as_view(), name='test'),
+    path('<slug:slug>/', views.PostDetail.as_view(),  name='blog_detail'),
 ]
