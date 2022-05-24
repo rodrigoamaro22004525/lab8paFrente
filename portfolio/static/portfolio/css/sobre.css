@@ -1,7 +1,5 @@
-
-
-image {
-    background-repeat: no-repeat
+* {
+    font-color: white;
+    color: #ffffff;
 }
 
-.image{width: 100%;}

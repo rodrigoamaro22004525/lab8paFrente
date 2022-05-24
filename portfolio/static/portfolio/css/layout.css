@@ -1,34 +1,48 @@
 * {
-    overflow: hidden;
+    font-color: white;
+    color: #ffffff;
+
 }
+
+.image {
+    position: relative;
+    top: auto;
+    margin-top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    background-image: url("../images/headerGif.gif");
+}
+
+
+
+
+
 
 .direita {
     justify-content: flex-end;
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     width: 100%;
-    color: #000000;
+    color: #ffffff;
     text-align: center;
     background-image: url("../images/headerGif.gif");
 }
 
-header {
+head > div {
     position: fixed;
-    color: white;
+    color: #ffffff;
     justify-content: space-between;
     align-items: center;
     right: 0;
     width: 100%;
     background-image: url("../images/headerGif.gif");
-}
-
-
-image {
-    background-repeat: no-repeat
 }
 
 

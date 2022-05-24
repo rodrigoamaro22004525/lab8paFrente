@@ -1,56 +1,74 @@
 <!DOCTYPE html>
 
-<html lang="en"
-      style="height: 10vh;color: black;justify-content: space-between;align-items: center;background: black; right: 0; top: 0; width: 100%;margin: 0">
+<html lang="">
 
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <title>Portfolio de Rodrigo Amaro</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    </head>
+    <body style="background: black">
+        <nav class ="navbar">
+            <div class="navbar-brand">
+                <a href="/" class="navbar-item">Rodrigo Amaro</a>
+                <a class="navbar-item" style="left:180%" href={% url 'portfolio:home' %}><strong>Home</strong></a>
+                <a class="navbar-item" style="left:180%" href={% url 'portfolio:projeto' %}><strong>Projetos</strong></a>
+                <a class="navbar-item" style="left:180%" href={% url 'portfolio:sobre' %}><strong>Sobre</strong></a>
+                <a class="navbar-item" style="left:180%" href={% url 'portfolio:contacto' %}><strong>Contacto</strong></a>
+                <a class="navbar-item" style="left:180%" href={% url 'portfolio:licenciatura' %}><strong>Licenciatura</strong></a>
+                <a class="navbar-item" style="left:180%" href={% url 'portfolio:blog' %}><strong>Blog</strong></a>
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+            </div>
+        </nav>
+        <section style="height: 100%" class="section">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </section>
+        <nav class ="navbar">
+            <div class="navbar-brand">
+                <a style="right: -2800%" href="https://www.ulusofona.pt/" class="navbar-item">ULHT</a>
+            </div>
+        </nav>
+    </body>
 
-
-</head>
-
-
-{% load static %}
-<link rel="stylesheet" href="{% static '' %}">
-
-
-<body style="margin:0;">
-
-    <header >
-        <div >
-            <h2 style="margin: 5px">Rodrigo Amaro</h2>
-
-            <ol style="padding-left: 1000px;">
-                <li> <a href={% url 'portfolio:home' %}> Home </a> </li>
-                <li> <a href={% url 'portfolio:projeto' %}> Projetos </a> </li>
-                <li> <a href={% url 'portfolio:sobre' %}> Sobre </a> </li>
-                <li> <a href={% url 'portfolio:contacto' %}> Contacto </a> </li>
-                <li> <a href={% url 'portfolio:licenciatura' %}> Licenciatura </a> </li>
-                <li> <a href={% url 'portfolio:blog' %}> Blog </a> </li>
-                <li> <a href={% url 'portfolio:test' %}> Test </a> </li>
-
-            </ol>
-            <a href="" class="btn"> <!-- outras cenas --> </a>
-        </div>
-    </header>
-<br><br><br><br>
-
-
-    <main>
-        {% block main %}
-
-
-
-        {% endblock main %}
-    </main>
-
-
-
-    <footer>
-        <p style="text-align: right;margin: 20px;color: #3a0000">ULHT</p>
-    </footer>
-</body>
 </html>
+
+
+<!--
+
+    <nav class="navbar" style="background-image: url( { static 'portfolio/images/headerGif.gif' %});">
+        <div class="navbar-brand" style="margin-left: 50px; width: 100%; align-items: center">
+            <a href="/">Portfolio de Rodrigo Amaro</a>
+            <nav class="" style="margin-right: 2%; margin-left: 5%; width: 50%">
+                <a href={ url 'portfolio:home' %}><strong>Home</strong></a>
+                <a href={ url 'portfolio:projeto' %}><strong>Projetos</strong></a>
+                <a href={ url 'portfolio:sobre' %}><strong>Sobre</strong></a>
+                <a href={ url 'portfolio:contacto' %}><strong>Contacto</strong></a>
+                <a href={ url 'portfolio:licenciatura' %}><strong>Licenciatura</strong></a>
+                <a href={ url 'portfolio:blog' %}><strong>Blog</strong></a>
+            </nav>
+        </div>
+    </nav>
+
+
+    <section style="height: 1000px; background: black; overflow: visible">
+        <div style="height: 100%" class="container">
+            { block content %}
+             { endblock %}
+        </div>
+
+        <footer style="bottom: 0; position: relative; margin-top: 50px; width: 100%">
+        <p style="text-align: right;color: #ffffff; padding-right: 50px; bottom:0; margin-bottom: 0; height: 50px">ULHT</p>
+        </footer>
+    </section>
+
+
+</body>
+
+
+
+</html>
+
+-->

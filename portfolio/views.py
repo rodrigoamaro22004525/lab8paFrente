@@ -1,12 +1,6 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse
-from django.views import generic
-
-import portfolio
+from django.shortcuts import render, redirect
 from .models import Post
-from .models import Portfolio
-from .forms import PortfolioForm
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -39,44 +33,27 @@ def licenciatura_page_view(request):
     return render(request, 'portfolio/licenciatura.html')
 
 
-# Blog
+# blog
 def blog_page_view(request):
-    return render(request, 'portfolio/post_list.html')
+    posts = Post.objects.all()
+
+    return render(request, 'portfolio/blog.html', {'posts': posts})
 
 
-def novo_portfolio_view(request):
-    form = PortfolioForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('portfolio:home'))
+# detail
+def post_detail(request, slug):
+    post = Post.objects.get(slug=slug)
 
-    context = {'form': form}
+    if request.method == 'POST':
+        form = CommentForm(request.Post)
 
-    return render(request, 'portfolio/novo.html', context)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
 
+            return redirect('post_detail', slug=post.slug)
+    else:
+        form = CommentForm()
 
-def edita_portfolio_view(request, portfolio_id):
-    portfolio = Portfolio.objects.get(id=portfolio_id)
-    form = PortfolioForm(request.POST or None, instance=portfolio)
-
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('portfolio:home'))
-
-    context = {'form': form, 'portfolio_id': portfolio_id}
-    return render(request, 'portfolio/editar.html', context)
-
-
-def apaga_portfolio_view(request, portfolio_id):
-    Portfolio.objects.get(id=portfolio_id).delete()
-    return HttpResponseRedirect(reverse('portfolio:home'))
-
-
-class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1).order_by('-created_at')
-    template_name = '{% url portfolio:blog %}'
-
-
-class PostDetail(generic.DetailView):
-    model = Post
-    template_name = '{% url portfolio:blog_detail %}'
+    return render(request, 'portfolio/post_detail.html', {'post': post, 'form': form})

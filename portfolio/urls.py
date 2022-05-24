@@ -13,25 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views
+
+from portfolio.views import post_detail, blog_page_view
 
 app_name = 'portfolio'
 name = "home"
 
 urlpatterns = [
-    path('', views.home_page_view),
-    path('home', views.home_page_view, name='home'),
-    path('sobre', views.sobre_page_view, name='sobre'),
-    path('projetos', views.projeto_page_view, name='projeto'),
-    path('sobre', views.sobre_page_view, name='sobre'),
-    path('contacto', views.contacto_page_view, name='contacto'),
-    path('licenciatura', views.licenciatura_page_view, name='licenciatura'),
-    path('blog', views.blog_page_view, name='blog'),
-    path('novo/', views.novo_portfolio_view, name='novo'),
-    path('edita/<int:portfolio_id>', views.edita_portfolio_view, name='edita'),
-    path('apaga/<int:portfolio_id>', views.apaga_portfolio_view, name='apaga'),
-    path('test', views.PostList.as_view(), name='test'),
-    path('<slug:slug>/', views.PostDetail.as_view(),  name='blog_detail'),
-]
+                  path('', views.home_page_view),
+                  path('home', views.home_page_view, name='home'),
+                  path('sobre', views.sobre_page_view, name='sobre'),
+                  path('projetos', views.projeto_page_view, name='projeto'),
+                  path('sobre', views.sobre_page_view, name='sobre'),
+                  path('contacto', views.contacto_page_view, name='contacto'),
+                  path('licenciatura', views.licenciatura_page_view, name='licenciatura'),
+                  path('blog', views.blog_page_view, name='blog'),
+                  path('<slug:slug>/', views.post_detail, name='post_detail'),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# não tendo este static em cima fez com que eu não pudesse fazer nada e tive que refazer o código todo

@@ -9,24 +9,24 @@
 
 
 
-{% block main %}
+{% block content %}
 
 
-    <center style="background-color: #000000"> <h2 style="color: white">Bem Vindo ao meu Portfolio!</h2><hr></center>
+    <h2 style="color: white">Bem Vindo ao meu Portfolio!</h2><hr>
 
-    <center style="background-color: #1e1e1f"><a href="" ><h2 style="color: white ">Programção</h2></a><br></center>
+    <center style="background-color: #1e1e1f"><a href="" ><h2 style="color: white; margin-bottom: 0">Programção</h2></a><br></center>
 
     {% load static %}
     <img class="image" src="{% static 'portfolio/images/Csharp.png' %}">
 
 
-    <center style="background-color: #202c34; "><a href="" ><h2 style="color: white ">Virtualização</h2></a><br></center>
+    <center><a href="" ><h2 style="color: white; margin-bottom: 0">Virtualização</h2></a><br></center>
 
     {% load static %}
     <img class="image" src="{% static 'portfolio/images/Containers.png'%} ">
 
 
-    <center style="background-color: #fdfdfe; "><a href="" ><h2 style="color: black ">Reverse-Engeneering (IDA)</h2></a><br></center>
+    <center><a href="" ><h2 style="color: #ffffff; margin-bottom: 0">Reverse-Engeneering (IDA)</h2></a><br></center>
 
     {% load static %}
     <img class="image" src="{% static 'portfolio/images/revEng.png'%} ">
