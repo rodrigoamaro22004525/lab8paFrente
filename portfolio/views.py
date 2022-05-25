@@ -45,15 +45,21 @@ def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
 
     if request.method == 'POST':
-        form = CommentForm(request.Post)
+        form = CommentForm(request.POST or None, request.FILES)
 
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
 
-            return redirect('post_detail', slug=post.slug)
+        return redirect('portfolio:post_detail', slug=post.slug)
     else:
         form = CommentForm()
 
     return render(request, 'portfolio/post_detail.html', {'post': post, 'form': form})
+
+
+# projetos/programação
+def programacao_page_view(request):
+
+    return render(request, 'portfolio/projetos.html/programacao.html')

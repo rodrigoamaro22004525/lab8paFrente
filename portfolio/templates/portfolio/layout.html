@@ -2,36 +2,58 @@
 
 <html lang="">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Portfolio de Rodrigo Amaro</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    </head>
-    <body style="background: black">
-        <nav class ="navbar">
-            <div class="navbar-brand">
-                <a href="/" class="navbar-item">Rodrigo Amaro</a>
-                <a class="navbar-item" style="left:180%" href={% url 'portfolio:home' %}><strong>Home</strong></a>
-                <a class="navbar-item" style="left:180%" href={% url 'portfolio:projeto' %}><strong>Projetos</strong></a>
-                <a class="navbar-item" style="left:180%" href={% url 'portfolio:sobre' %}><strong>Sobre</strong></a>
-                <a class="navbar-item" style="left:180%" href={% url 'portfolio:contacto' %}><strong>Contacto</strong></a>
-                <a class="navbar-item" style="left:180%" href={% url 'portfolio:licenciatura' %}><strong>Licenciatura</strong></a>
-                <a class="navbar-item" style="left:180%" href={% url 'portfolio:blog' %}><strong>Blog</strong></a>
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio de Rodrigo Amaro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/dropdown.css' %}"/>
+    <style>label {
+        color: white
+    }
 
+    p {
+        color: white
+    }</style>
+</head>
+<body style="background: black">
+<nav class="navbar">
+    <div class="navbar-brand">
+
+        <a href="/" class="navbar-item">Rodrigo Amaro</a>
+        <a class="navbar-item" style="left:180%" href={% url 'portfolio:home' %}><strong>Home</strong></a>
+
+        <div class="dropdown">
+            <a class="navbar-item" style="left: 1300%;" href={% url 'portfolio:projeto' %}><strong>Projetos</strong></a>
+            <div class="dropdown-content">
+                <p><a class="navbar-item" style="left: 1300%;" href={% url 'portfolio:programacao' %}><strong>Projetos</strong></a></p>
             </div>
-        </nav>
-        <section style="height: 100%" class="section">
-            <div class="container">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </section>
-        <nav class ="navbar">
-            <div class="navbar-brand">
-                <a style="right: -2800%" href="https://www.ulusofona.pt/" class="navbar-item">ULHT</a>
-            </div>
-        </nav>
-    </body>
+        </div>
+
+
+
+
+        <a class="navbar-item" style="left:180%" href={% url 'portfolio:sobre' %}><strong>Sobre</strong></a>
+        <a class="navbar-item" style="left:180%" href={% url 'portfolio:contacto' %}><strong>Contacto</strong></a>
+        <a class="navbar-item" style="left:180%"
+           href={% url 'portfolio:licenciatura' %}><strong>Licenciatura</strong></a>
+        <a class="navbar-item" style="left:180%" href={% url 'portfolio:blog' %}><strong>Blog</strong></a>
+
+
+    </div>
+</nav>
+<section style="height: 100%" class="section">
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</section>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a style="right: -2800%" href="https://www.ulusofona.pt/" class="navbar-item">ULHT</a>
+    </div>
+</nav>
+</body>
 
 </html>
 

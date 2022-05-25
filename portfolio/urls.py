@@ -33,5 +33,6 @@ urlpatterns = [
                   path('licenciatura', views.licenciatura_page_view, name='licenciatura'),
                   path('blog', views.blog_page_view, name='blog'),
                   path('<slug:slug>/', views.post_detail, name='post_detail'),
+                  path('programacao', views.programacao_page_view, name='programacao')
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # não tendo este static em cima fez com que eu não pudesse fazer nada e tive que refazer o código todo

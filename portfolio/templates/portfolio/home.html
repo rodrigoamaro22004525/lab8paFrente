@@ -14,22 +14,24 @@
 
     <h2 style="color: white">Bem Vindo ao meu Portfolio!</h2><hr>
 
-    <center style="background-color: #1e1e1f"><a href="" ><h2 style="color: white; margin-bottom: 0">Programção</h2></a><br></center>
+    <center><a href="{% url 'portfolio:projeto' %}" ><h2 style="color: white; margin-bottom: 0">Programção</h2></a><br></center>
 
     {% load static %}
-    <img class="image" src="{% static 'portfolio/images/Csharp.png' %}">
+    <img class="image" src="{% static 'portfolio/images/Csharp.png' %}" alt="{% url 'portfolio:projeto' %}">
 
+    <br><br><br>
 
-    <center><a href="" ><h2 style="color: white; margin-bottom: 0">Virtualização</h2></a><br></center>
-
-    {% load static %}
-    <img class="image" src="{% static 'portfolio/images/Containers.png'%} ">
-
-
-    <center><a href="" ><h2 style="color: #ffffff; margin-bottom: 0">Reverse-Engeneering (IDA)</h2></a><br></center>
+    <center><a href="{% url 'portfolio:projeto' %}" ><h2 style="color: white; margin-bottom: 0">Virtualização</h2></a><br></center>
 
     {% load static %}
-    <img class="image" src="{% static 'portfolio/images/revEng.png'%} ">
+    <img class="image" src="{% static 'portfolio/images/Containers.png'%} " alt="{% url 'portfolio:projeto' %}">
+
+    <br><br><br>
+
+    <center><a href="{% url 'portfolio:projeto' %}" ><h2 style="color: #ffffff; margin-bottom: 0">Reverse-Engeneering (IDA)</h2></a><br></center>
+
+    {% load static %}
+    <img class="image" src="{% static 'portfolio/images/revEng.png'%} " alt="{% url 'portfolio:projeto' %}">
 
 
 
